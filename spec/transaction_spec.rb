@@ -1,10 +1,11 @@
 require 'transaction'
 
 describe Transaction do
-  subject(:transaction) { described_class.new(100, 100) }
+  AMOUNT = 100
+  subject(:transaction) { described_class.new(AMOUNT, AMOUNT) }
 
   it 'stores a balance given at initialize' do
-    expect(transaction.balance).to eq 100
+    expect(transaction.balance).to eq AMOUNT
   end
 
   it 'stores date created' do
@@ -20,7 +21,7 @@ describe Transaction do
   end
 
   it 'stores the amount of the transaction' do
-    expect(transaction.amount).to eq 100
+    expect(transaction.amount).to eq AMOUNT
   end
 
   describe '#debit' do

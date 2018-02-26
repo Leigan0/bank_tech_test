@@ -1,7 +1,7 @@
 require 'ledger'
 
 describe Ledger do
-  let(:transaction) { double :transaction, credit: true }
+  let(:transaction) { double :transaction, credit: true, debit: true }
   let(:transaction_class) { double :transaction_class, new: transaction }
   subject(:ledger) { Ledger.new(transaction_class) }
   TRANSACTION_AMOUNT = 10
@@ -33,9 +33,22 @@ describe Ledger do
     end
   end
 
-  describe '#withdrawal' do
+  describe '#withdraw' do
     it 'decreases the balance by the amount (given as argument) withdrawn' do
       expect { ledger.withdraw(TRANSACTION_AMOUNT) }.to change { ledger.balance }.by -TRANSACTION_AMOUNT
+    end
+    it 'creates a new transaction' do
+      ledger.withdraw(TRANSACTION_AMOUNT)
+      expect(transaction_class).to have_received(:new).with(ledger.balance, TRANSACTION_AMOUNT)
+    end
+
+    it 'stores a new transaction' do
+      ledger.withdraw(TRANSACTION_AMOUNT)
+      expect(ledger.transactions).to eq [transaction]
+    end
+    it 'calls .debit function for transaction' do
+      ledger.withdraw(TRANSACTION_AMOUNT)
+      expect(transaction).to have_received(:debit)
     end
   end
 end

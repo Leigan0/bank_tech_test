@@ -16,6 +16,8 @@ class Ledger
 
   def withdraw(amount)
     @balance -= amount
+    add_transaction(amount)
+    transactions.last.debit
   end
 
 private
