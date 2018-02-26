@@ -2,6 +2,9 @@
 
 ## Specification
 
+After reading the requirements I have made the decision to implement a solution in Ruby. For testings I have chosen Rspec, I have made these decisions as I have experiences with both of these, and feel the language will allow me to implement a OO solution in a TDD manner.
+
+
 ### Requirements
 * You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
 * Deposits, withdrawal.
