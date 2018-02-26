@@ -1,13 +1,14 @@
 require 'date'
 
 class Transaction
-  attr_reader :balance, :date_created
+  attr_reader :balance, :date_created, :amount
 
-  def initialize(balance)
+  def initialize(balance, amount)
     @balance = 100
     @date_created = date
     @debit = false
     @credit = false
+    @amount = amount
   end
 
   def debit

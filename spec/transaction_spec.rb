@@ -1,7 +1,7 @@
 require 'transaction'
 
 describe Transaction do
-  subject(:transaction) { described_class.new(100) }
+  subject(:transaction) { described_class.new(100, 100) }
 
   it 'stores a balance given at initialize' do
     expect(transaction.balance).to eq 100
@@ -17,6 +17,10 @@ describe Transaction do
 
   it 'defaults to not being a credit transaction' do
       expect(transaction).not_to be_credit
+  end
+
+  it 'stores the amount of the transaction' do
+    expect(transaction.amount).to eq 100
   end
 
   describe '#debit' do
