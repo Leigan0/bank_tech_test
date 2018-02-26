@@ -6,6 +6,15 @@ class Transaction
   def initialize(balance)
     @balance = 100
     @date_created = date
+    @debit = false
+  end
+
+  def debit
+    @debit = true 
+  end
+
+  def debit?
+    @debit
   end
 
 private
