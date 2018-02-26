@@ -4,7 +4,7 @@ class Transaction
   attr_reader :balance, :date_created, :amount
 
   def initialize(balance, amount)
-    @balance = 100
+    @balance = balance
     @date_created = date
     @debit = false
     @credit = false
