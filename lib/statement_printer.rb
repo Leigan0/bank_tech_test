@@ -1,7 +1,13 @@
 class StatementPrinter
 
+  def print(transaction_info)
+    header + transaction_formatter(transaction_info)
+  end
+
+  private
+
   def header
-    'date || credit || debit || balance'
+    "date || credit || debit || balance\n"
   end
 
   def transaction_formatter(transaction_info)
