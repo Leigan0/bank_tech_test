@@ -4,8 +4,11 @@ describe Ledger do
   subject(:ledger) { Ledger.new }
 
   it 'initalizes with empty balance' do
-    ledger = Ledger.new
     expect(ledger.balance).to eq 0
+  end
+
+  it 'initalizes with an empty transaction list' do
+    expect(ledger.transactions).to be_empty
   end
 
   describe '#deposit' do
