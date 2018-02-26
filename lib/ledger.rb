@@ -1,5 +1,4 @@
 class Ledger
-
   attr_reader :balance
 
   def initialize
@@ -10,4 +9,7 @@ class Ledger
     @balance += amount
   end
 
+  def withdraw(amount)
+    @balance -= amount
+  end 
 end
