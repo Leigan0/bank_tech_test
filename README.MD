@@ -8,7 +8,7 @@ I have created three classes - based on responsibility. Ledger has the responsib
 
 Given more time I would have considered extracting the responsibility of holding all the transaction information to its own class, however at the moment I think the class size and responsibility is maintainable.
 
-To set the credit or debit information within the transaction I have chosen to have this as a method within transaction which is called to allow state to be set. I have considered that this information could be passed as a parameter and set based on this, however I have chosen the method call and true or false to limit the parameters passed to transaction. I believe this allows better encapsulation of the debt / credit state.
+To set the credit or debit information within the transaction I have chosen to have this as a method within transaction which is called to allow state to be set. I have considered that this information could be passed as a parameter and set based on this, however I have chosen the method call and true or false to limit the parameters passed to transaction. I believe this allows better encapsulation of the debt / credit state. I have considered that to meet the specification I would only require one attribute of credit, as at the moment debit is not called to check state of the transaction, however I think having this would allow easier extension and improves readability.  
 
 The test suite could also be revisited to remove redundant tests as the features expanded within the app. I have spent some time reviewing tests and removed tests that check arguments saved on initialize as reasonable this would happen. Alternative classes test that correct arguments passed.
 
