@@ -7,14 +7,6 @@ describe Ledger do
   subject(:ledger) { Ledger.new(transaction_class, printer) }
   TRANSACTION_AMOUNT = 10
 
-  it 'initalizes with empty balance' do
-    expect(ledger.balance).to eq 0
-  end
-
-  it 'initalizes with an empty transaction list' do
-    expect(ledger.transactions).to be_empty
-  end
-
   describe '#deposit' do
     it 'increases the balance by the amount (given as argument) deposited' do
       expect { ledger.deposit(TRANSACTION_AMOUNT) }.to change { ledger.balance }.by TRANSACTION_AMOUNT

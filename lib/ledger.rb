@@ -14,13 +14,13 @@ class Ledger
   def deposit(amount)
     @balance += amount
     add_transaction(amount)
-    transactions.last.credit
+    current_transaction.credit
   end
 
   def withdraw(amount)
     @balance -= amount
     add_transaction(amount)
-    transactions.last.debit
+    current_transaction.debit
   end
 
   def print_statement
@@ -28,9 +28,11 @@ class Ledger
   end
 
   private
-  
+
+  attr_reader :current_transaction
+
   def add_transaction(amount)
-    transaction = @transaction_class.new(balance, amount)
-    @transactions << transaction
+    @current_transaction = @transaction_class.new(balance, amount)
+    @transactions << current_transaction
   end
 end

@@ -10,9 +10,7 @@ Given more time I would have considered extracting the responsibility of holding
 
 To set the credit or debit information within the transaction I have chosen to have this as a method within transaction which is called to allow state to be set. I have considered that this information could be passed as a parameter and set based on this, however I have chosen the method call and true or false to limit the parameters passed to transaction. I believe this allows better encapsulation of the debt / credit state.
 
-Within ledger, deposit/withdrawal currently calls credit/debit on the last item in the array. I think this should be improved if I had further time to refactor.
-
-The test suite could also be revisited to remove redundant tests as the features expanded within the app.
+The test suite could also be revisited to remove redundant tests as the features expanded within the app. I have spent some time reviewing tests and removed tests that check arguments saved on initialize as reasonable this would happen. Alternative classes test that correct arguments passed.
 
 Whilst the solution meets all the requirements and acceptance test, I think given more time I could reduce the amount of code required to meet this.
 
