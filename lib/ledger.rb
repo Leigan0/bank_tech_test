@@ -3,7 +3,7 @@ class Ledger
   require_relative 'statement_printer'
 
   attr_reader :balance, :transactions
-  
+
   def initialize(transaction_class = Transaction, printer = StatementPrinter.new)
     @balance = 0
     @transactions = []
@@ -27,7 +27,8 @@ class Ledger
     puts @statement_printer.print(transactions)
   end
 
-private
+  private
+  
   def add_transaction(amount)
     transaction = @transaction_class.new(balance, amount)
     @transactions << transaction

@@ -1,5 +1,4 @@
 class StatementPrinter
-
   def print(transaction_info)
     header + transaction_formatter(transaction_info)
   end
@@ -21,5 +20,4 @@ class StatementPrinter
     end
     statement
   end
-
 end

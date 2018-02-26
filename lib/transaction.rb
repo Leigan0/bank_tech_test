@@ -27,8 +27,9 @@ class Transaction
     @credit
   end
 
-private
+  private
+
   def date
-    Time.now.strftime("%d/%m/%Y")
+    Time.now.strftime('%d/%m/%Y')
   end
 end
