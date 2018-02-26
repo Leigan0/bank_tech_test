@@ -15,10 +15,21 @@ describe Transaction do
     expect(transaction).not_to be_debit
   end
 
+  it 'defaults to not being a credit transaction' do
+      expect(transaction).not_to be_credit
+  end
+
   describe '#debit' do
     it 'changes transaction debit status to true' do
       transaction.debit
       expect(transaction).to be_debit
+    end
+  end
+
+  describe '#credit' do
+    it 'changes transaction credit status to true' do
+      transaction.credit
+      expect(transaction).to be_credit
     end
   end
 
