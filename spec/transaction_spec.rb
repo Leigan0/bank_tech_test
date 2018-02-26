@@ -9,7 +9,7 @@ describe Transaction do
   end
 
   it 'stores date created' do
-    expect(transaction.date_created).to eq Time.now.strftime("%d/%m/%Y")
+    expect(transaction.date_created).to eq Time.now.strftime('%d/%m/%Y')
   end
 
   it 'defaults to not being a debit transaction' do
@@ -17,7 +17,7 @@ describe Transaction do
   end
 
   it 'defaults to not being a credit transaction' do
-      expect(transaction).not_to be_credit
+    expect(transaction).not_to be_credit
   end
 
   it 'stores the amount of the transaction' do
@@ -37,5 +37,4 @@ describe Transaction do
       expect(transaction).to be_credit
     end
   end
-
 end

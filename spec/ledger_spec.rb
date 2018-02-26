@@ -1,9 +1,10 @@
 require 'ledger'
 
 describe Ledger do
+  let(:printer) { double :printer, print: ""}
   let(:transaction) { double :transaction, credit: true, debit: true }
   let(:transaction_class) { double :transaction_class, new: transaction }
-  subject(:ledger) { Ledger.new(transaction_class) }
+  subject(:ledger) { Ledger.new(transaction_class, printer) }
   TRANSACTION_AMOUNT = 10
 
   it 'initalizes with empty balance' do
@@ -49,6 +50,13 @@ describe Ledger do
     it 'calls .debit function for transaction' do
       ledger.withdraw(TRANSACTION_AMOUNT)
       expect(transaction).to have_received(:debit)
+    end
+  end
+
+  describe "#print_statement" do
+    it 'calls print on printer object with transactions attribute as argument' do
+      ledger.print_statement
+      expect(printer).to have_received(:print).with(ledger.transactions)
     end
   end
 end

@@ -12,7 +12,7 @@ class StatementPrinter
 
   def transaction_formatter(transaction_info)
     statement = ''
-    transaction_info.each do |trans|
+    transaction_info.reverse.each do |trans|
       if trans.credit?
         statement << "#{trans.date_created} || #{trans.amount} ||    || #{trans.balance} \n"
       else
